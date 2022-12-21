@@ -1,0 +1,18 @@
+int[] solution(int[] a) {
+    int[] temp = a.clone();
+    Arrays.sort(a);
+    ArrayList<Integer> listy = new ArrayList<>();
+    for (int num : a) {
+        if(num != -1) {
+            listy.add(num);
+        }
+    }
+    int j = 0;
+    for (int i = 0; i < temp.length; i++) {
+        if(temp[i] != -1) {
+            temp[i] = listy.get(j);
+            j++;
+        }
+    }
+    return temp;
+}
