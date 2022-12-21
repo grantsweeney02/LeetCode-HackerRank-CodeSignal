@@ -1,0 +1,16 @@
+String solution(String inputString) {
+    Stack<Integer> stack = new Stack<>();
+    for (int i = 0; i < inputString.length(); i++) {
+        char c = inputString.charAt(i);
+        if (c == '(') {
+            stack.push(i);
+        } else if (c == ')') {
+            int start = stack.pop();
+            String sub = inputString.substring(start + 1, i);
+            String reversed = new StringBuilder(sub).reverse().toString();
+            inputString = inputString.substring(0, start) + reversed + inputString.substring(i + 1);
+            i -= 2;
+        }
+    }
+    return inputString;
+}

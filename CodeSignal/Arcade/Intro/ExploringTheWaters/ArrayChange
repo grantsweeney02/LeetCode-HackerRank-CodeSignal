@@ -1,0 +1,11 @@
+int solution(int[] inputArray) {
+    int count = 0;
+    for (int i = 1; i < inputArray.length; i++) {
+        if(inputArray[i-1] >= inputArray[i]) {
+            int numToAdd = inputArray[i-1] - inputArray[i] + 1;
+            count += numToAdd;
+            inputArray[i] += numToAdd;
+        }
+    }
+    return count;
+}
