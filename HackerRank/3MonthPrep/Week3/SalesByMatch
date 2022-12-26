@@ -1,0 +1,39 @@
+public static int sockMerchant(int n, List<Integer> ar) {
+    int numPairs = 0;
+    HashMap<Integer, Integer> map = new HashMap<>();
+    for (int i = 0; i < n; i++) {
+        if(map.containsKey(i)) {
+            continue;
+        }
+        int firstColor = ar.get(i);
+        for (int j = i+1; j < n; j++) {
+            int secondColor = ar.get(j);
+            if(firstColor == secondColor) {
+                if(!map.containsKey(j)) {
+                    numPairs++;
+                    map.put(j, i);
+                }
+                break;
+            }
+        }
+    }
+    return numPairs;
+}
+
+public static int sockMerchant(int n, List<Integer> list) {
+    Map<Integer, Integer> map = new HashMap<>();
+    int pairs = 0;
+    
+    for(int i = 0; i < list.size(); ++i) {
+        int count = map.getOrDefault(list.get(i), 0);
+        ++count;
+        map.put(list.get(i), count);
+    }
+    
+    
+    for(Integer key : map.keySet()) {
+        pairs += map.get(key) / 2;
+    }
+    
+    return pairs;
+}
