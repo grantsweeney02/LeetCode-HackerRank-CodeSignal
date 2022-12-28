@@ -1,0 +1,20 @@
+boolean solution(int yourLeft, int yourRight, int friendsLeft, int friendsRight) {
+    int yourStrongest = yourLeft;
+    int yourWeakest = yourRight;
+    int friendsStrongest = friendsLeft;
+    int friendsWeakest = friendsRight;
+    if(yourLeft < yourRight) {
+        yourStrongest = yourRight;
+        yourWeakest = yourLeft;
+    }
+    if(friendsLeft < friendsRight) {
+        friendsStrongest = friendsRight;
+        friendsWeakest = friendsLeft;
+    }
+    return yourStrongest == friendsStrongest && yourWeakest == friendsWeakest;
+}
+
+
+boolean solution(int yourLeft, int yourRight, int friendsLeft, int friendsRight) {
+    return friendsLeft == yourLeft && friendsRight == yourRight || friendsLeft == yourRight && friendsRight == yourLeft;
+}
