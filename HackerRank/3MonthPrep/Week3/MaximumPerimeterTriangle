@@ -1,0 +1,20 @@
+public static List<Integer> maximumPerimeterTriangle(List<Integer> sticks) {
+    Collections.sort(sticks);
+    List<Integer> returnArr = new ArrayList<>();
+    int maxValidSide = 0;
+    for(int i = 0; i < sticks.size()-2; i++) {
+        int a = sticks.get(i);
+        int b = sticks.get(i+1);
+        int c = sticks.get(i+2);
+        if(a + b > c && a+c > b && b+c > a && c > maxValidSide) {
+            returnArr.clear();
+            returnArr.add(a);
+            returnArr.add(b);
+            returnArr.add(c);
+        }
+    }
+    if(returnArr.isEmpty()) {
+        returnArr.add(-1);
+    }
+    return returnArr;
+}

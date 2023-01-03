@@ -1,0 +1,31 @@
+boolean solution(String inputString) {
+    String[] arr = inputString.split("\\.");
+    if(arr.length != 4) {
+        System.out.println(arr.length);
+        System.out.println("length not right");
+        return false;
+    }
+    for (String string : arr) {
+        if(string.equals("")) {
+            System.out.println("emtpy");
+            return false;
+        }
+        if(string.length() > 1 && string.charAt(0) == '0') {
+            System.out.println("first is zero");
+            return false;
+        }
+        int num;
+        try {
+            num = Integer.valueOf(string);
+        }
+        catch(NumberFormatException e) {
+            return false;
+        }
+        
+        if(num < 0 || num > 255) {
+            System.out.println("out of range");
+            return false;
+        }
+    }
+    return true;
+}
