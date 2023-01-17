@@ -1,0 +1,17 @@
+String solution(String inputString) {
+    String alphabet = "abcdefghijklmnopqrstuvwxyz";
+    String ans = "";
+    for (int i = 0; i < inputString.length(); i++) {
+        char toBeReplace = inputString.charAt(i);
+        int index = alphabet.indexOf(toBeReplace);
+        char replaced;
+        if(index == 25) {
+            replaced = 'a';
+        }
+        else {
+            replaced = alphabet.charAt(index+1);
+        }
+        ans += replaced;
+    }
+    return ans;
+}

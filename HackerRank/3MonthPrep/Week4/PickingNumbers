@@ -1,0 +1,19 @@
+public static int pickingNumbers(List<Integer> a) {
+    Collections.sort(a);
+    int maxCount = 1;
+    int currCount = 1;
+    System.out.println(a);
+    for (int i = 1; i < a.size(); i++) {
+        int first = a.get(i-1);
+        for (int j = i; j < a.size(); j++) {
+            if(Math.abs(first - a.get(j)) <= 1) {
+                currCount++;
+            }
+        }
+        if(currCount > maxCount) {
+            maxCount = currCount;
+        }
+        currCount = 1;
+    }
+    return maxCount;
+}

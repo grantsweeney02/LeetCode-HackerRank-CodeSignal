@@ -1,0 +1,11 @@
+public static List<Integer> rotateLeft(int d, List<Integer> arr) {
+    if(d == 0) {
+        return arr;
+    }
+    Integer start = arr.get(0);
+    for (int i = 1; i < arr.size(); i++) {
+        arr.set(i-1, arr.get(i));
+    }
+    arr.set(arr.size()-1, start);
+    return rotateLeft(d-1, arr);
+}

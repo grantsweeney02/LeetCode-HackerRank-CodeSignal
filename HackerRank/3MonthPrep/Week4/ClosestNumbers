@@ -1,0 +1,24 @@
+public static List<Integer> closestNumbers(List<Integer> arr) {
+    arr = new ArrayList<>(new HashSet<>(arr));
+    int currSmallDistance = Integer.MAX_VALUE;
+    List<Integer> returnList = new ArrayList<Integer>();
+    Collections.sort(arr);
+    System.out.println(arr);
+    for (int i = 0; i < arr.size()-1; i++) {
+        int first = arr.get(i);
+        int second = arr.get(i+1);
+        int distance = Math.abs(second-first);
+        System.out.println(second - first);
+        if(distance < currSmallDistance) {
+            currSmallDistance = distance;
+            returnList.clear();
+            returnList.add(first);
+            returnList.add(second);
+        }
+        else if(distance == currSmallDistance) {
+            returnList.add(first);
+            returnList.add(second);
+        }
+    }
+    return returnList;
+}
