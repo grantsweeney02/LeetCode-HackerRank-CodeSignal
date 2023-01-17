@@ -1,0 +1,17 @@
+boolean solution(String cell1, String cell2) {
+    ArrayList<Character> oddLetters = new ArrayList<>(List.of('A','C','E','G'));
+    String cell1Color = findColor(cell1);
+    String cell2Color = findColor(cell2);
+    if(cell1Color == cell2Color) {
+        return true;
+    }
+    return false;
+}
+
+String findColor(String cell) {
+    ArrayList<Character> oddLetters = new ArrayList<>(List.of('A','C','E','G'));
+    if(oddLetters.contains(cell.charAt(0)) && cell.charAt(1)%2==1 || (!oddLetters.contains(cell.charAt(0)) && cell.charAt(1)%2==0)) {
+        return "Brown";
+    }
+    return "White";
+}

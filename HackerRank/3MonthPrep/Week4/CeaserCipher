@@ -1,0 +1,18 @@
+public static String caesarCipher(String s, int k) {
+    String alphabet = "abcdefghijklmnopqrstuvwxyz";
+    String Upperalphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    String returnStr = "";
+    for (int i = 0; i < s.length(); i++) {
+        if(alphabet.contains(s.charAt(i)+"")) {
+            returnStr += alphabet.charAt((alphabet.indexOf(s.charAt(i))+k)%26);
+        }
+        else if(Upperalphabet.contains(s.charAt(i)+"")) {
+            returnStr += Upperalphabet.charAt((Upperalphabet.indexOf(s.charAt(i))+k)%26);
+        }
+        else {
+            returnStr += s.charAt(i);
+        }
+        
+    }
+    return returnStr;
+}
