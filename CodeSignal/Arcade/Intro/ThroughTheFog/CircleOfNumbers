@@ -1,0 +1,7 @@
+int solution(int n, int firstNumber) {
+    int numToSubstract = n/2;
+    if(firstNumber >= numToSubstract) {
+        return firstNumber - numToSubstract;
+    }
+    return firstNumber + numToSubstract;
+}

@@ -1,0 +1,7 @@
+int solution(String s) {
+    HashMap<Character, Integer> mappy = new HashMap<>();
+    for (int index = 0; index < s.length(); index++) {
+        mappy.put(s.charAt(index), mappy.getOrDefault(s.charAt(index), 0) + 1);
+    }
+    return mappy.values().size();
+}
