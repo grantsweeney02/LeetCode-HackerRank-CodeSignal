@@ -1,0 +1,11 @@
+int solution(int[] inputArray, int k) {
+    int maxSum = Integer.MIN_VALUE;
+    for(int i = 0; i <= inputArray.length-k; i++) {
+        int runSum = 0;
+        for (int j = 0; j < k; j++) {
+            runSum += inputArray[i+j];
+        }
+        maxSum = Math.max(maxSum, runSum);
+    }
+    return maxSum;
+}

@@ -1,0 +1,13 @@
+int solution(int n) {
+    int count = 0;
+    while (String.valueOf(n).length() > 1) {
+        int sum = 0;
+        String num = String.valueOf(n);
+        for (int i = 0; i < num.length(); i++) {
+            sum += Integer.valueOf(num.charAt(i)+"");
+        }
+        count++;
+        n = sum;
+    }
+    return count;
+}

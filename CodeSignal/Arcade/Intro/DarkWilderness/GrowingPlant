@@ -1,0 +1,16 @@
+int solution(int upSpeed, int downSpeed, int desiredHeight) {
+    int count = 0;
+    int totalHeight = 0;
+    while(true) {
+        count++;
+        totalHeight += upSpeed;
+        if(totalHeight < desiredHeight) {
+            totalHeight -= downSpeed;
+            
+        }
+        else {
+            break;
+        }
+    }
+    return count;
+}

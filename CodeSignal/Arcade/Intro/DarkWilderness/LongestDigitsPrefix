@@ -1,0 +1,12 @@
+String solution(String inputString) {
+    String ans = "";
+    for(int i = 0; i< inputString.length(); i++) {
+        if(Character.isDigit(inputString.charAt(i))) {
+            ans += inputString.charAt(i);
+        }
+        else {
+            break;
+        }
+    }
+    return ans;
+}
