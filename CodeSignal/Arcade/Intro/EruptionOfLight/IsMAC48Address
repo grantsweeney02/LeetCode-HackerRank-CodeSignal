@@ -1,0 +1,22 @@
+boolean solution(String inputString) {
+    if(inputString.length() != 17) {
+        return false;
+    }
+    String[] pairs = inputString.split("-");
+    if(pairs.length != 6) {
+        return false;
+    }
+    for (int i = 0; i < pairs.length; i++) {
+        int first = Integer.valueOf(pairs[i].charAt(0));
+        int second = Integer.valueOf(pairs[i].charAt(1));
+        if((47 < first && first < 58) || (64 < first && first < 71)) {
+            if(second < 48 || second > 70 || (58 < second && second < 64)) {
+                return false;
+            }
+        }
+        else {
+            return false;
+        }
+    }
+    return true;
+}

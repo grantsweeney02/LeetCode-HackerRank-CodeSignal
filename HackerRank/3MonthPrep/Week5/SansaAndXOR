@@ -1,0 +1,12 @@
+// Not My Solution
+public static int sansaXor(List<Integer> arr) {
+    int len = arr.size();
+    if (len % 2 == 0) {
+        return 0;
+    }
+    int xorRes = 0;
+    for (int i = 0; i < arr.size(); i += 2) {
+        xorRes ^= arr.get(i);
+    }
+    return xorRes;
+}

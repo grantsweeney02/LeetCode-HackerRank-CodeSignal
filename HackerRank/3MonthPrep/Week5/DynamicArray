@@ -1,0 +1,15 @@
+// Not my solution
+public static List<Integer> dynamicArray(int n, List<List<Integer>> queries) {
+    ArrayList<Integer>  res = new ArrayList<>();
+    List<List<Integer>> arr = new ArrayList<>(n);
+    for (int i=0; i<n; i++) arr.add(new ArrayList<Integer>());
+    int prev = 0;
+
+    for (List<Integer> q: queries) {
+        List<Integer> l = arr.get((q.get(1) ^ prev) % n);
+        if (q.get(0) == 1) l.add(q.get(2));
+        else res.add(prev = l.get(q.get(2) % l.size()));
+    }
+    
+    return res;
+}

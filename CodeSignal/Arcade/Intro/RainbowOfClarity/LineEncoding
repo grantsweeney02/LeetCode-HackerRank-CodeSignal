@@ -1,0 +1,27 @@
+String solution(String s) {
+    String[] word = s.split("");
+    ArrayList<String> groups = new ArrayList<>();
+    String same = word[0];
+    for(int i = 1; i < word.length; i++) {
+        if(word[i].charAt(0) == same.charAt(0)) {
+             same += word[i];
+        }
+        else {
+            groups.add(same);
+            same = word[i];
+        }
+    } 
+    System.out.println(same);
+    groups.add(same);
+    String ans = "";
+    for(int i = 0; i < groups.size(); i++) {
+        if(groups.get(i).length() > 1) {
+            ans += groups.get(i).length() + ""+ groups.get(i).charAt(0);
+        }
+        else {
+            ans += groups.get(i).charAt(0);
+        }
+
+    }
+    return ans;
+}

@@ -1,0 +1,4 @@
+String solution(String address) {
+    String[] arr = address.split("@");
+    return arr[arr.length-1];
+}

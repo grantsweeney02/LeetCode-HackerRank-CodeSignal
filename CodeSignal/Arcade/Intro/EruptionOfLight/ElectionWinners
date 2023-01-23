@@ -1,0 +1,24 @@
+// Not all my solution
+int solution(int[] votes, int k) {
+    int max = 0;
+    
+    for (int index = 0; index < votes.length; index++) {
+        max = Math.max(max, votes[index]);
+    }
+    int count = 0;
+    if(k == 0) {
+			max--;
+		}
+    for(int i=0 ; i<votes.length ; i++) {
+        if(votes[i]+k > max) {
+            count++;
+        }
+    }
+    if(k == 0 && count > 1) {
+        return 0;
+    }
+    else if(k == 0) {
+        return 1;
+    }
+    return count;
+}

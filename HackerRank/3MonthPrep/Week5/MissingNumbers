@@ -1,0 +1,22 @@
+public static List<Integer> missingNumbers(List<Integer> arr, List<Integer> brr) {
+    ArrayList<Integer> ans = new ArrayList<>();
+    HashMap<Integer, Integer> arrMap = new HashMap<>();
+    HashMap<Integer, Integer> brrMap = new HashMap<>();
+    for (Integer integer : arr) {
+        arrMap.put(integer, arrMap.getOrDefault(integer, 0)+1);
+    }
+    for (Integer integer : brr) {
+        brrMap.put(integer, brrMap.getOrDefault(integer, 0)+1);
+    }
+    for (Integer integer: brrMap.keySet()) {
+        if(arrMap.containsKey(integer)) {
+            if(brrMap.get(integer) > arrMap.get(integer)) {
+                ans.add(integer);
+            }
+        }
+        else {
+            ans.add(integer);
+        }
+    }
+    return ans;
+}

@@ -1,0 +1,23 @@
+String solution(String st) {
+    if(isPalindrome(st)) {
+        return st;
+    }
+    int end = st.length();
+    StringBuilder sb = new StringBuilder("");
+    for (int i = 0; i < end; i++) {
+        char charToAdd = st.charAt(i);
+        sb.insert(0, charToAdd);
+        if(isPalindrome(st + sb.toString())) {
+            return st+sb.toString();
+        }
+    }
+    return "";
+}
+boolean isPalindrome(String st) {
+    StringBuilder sb = new StringBuilder(st);
+    sb.reverse();
+    if(st.equals(sb.toString())) {
+        return true;
+    }
+    return false;
+}
