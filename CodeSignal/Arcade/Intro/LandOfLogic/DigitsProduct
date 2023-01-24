@@ -1,0 +1,17 @@
+int solution(int product) {
+    if(product == 0) {
+        return 10;
+    }
+    String numWord = String.valueOf(product);
+    for(int i = 0; i<=9999; i++) {
+        String inum = String.valueOf(i);
+        int count = 1;
+        for (int j = 0; j < inum.length(); j++) {
+            count *= Integer.valueOf(inum.charAt(j)+"");
+        }
+        if(count == product) {
+            return Integer.valueOf(inum);
+        }
+    }
+    return -1;
+}
