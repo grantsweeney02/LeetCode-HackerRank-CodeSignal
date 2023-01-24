@@ -1,0 +1,22 @@
+String solution(String text) {
+    String longest = "";
+    String curr = "";
+    for (int i = 0; i < text.length(); i++) {
+        char c = text.charAt(i);
+        if(Character.isAlphabetic(c)) {
+            curr += c; 
+        }
+        else {
+            if(longest.length() < curr.length()) {
+                longest = curr;
+                
+            }
+            curr = "";
+        }
+    }
+    if(longest.length() < curr.length()) {
+        longest = curr;
+        curr = "";
+    }
+    return longest;
+}

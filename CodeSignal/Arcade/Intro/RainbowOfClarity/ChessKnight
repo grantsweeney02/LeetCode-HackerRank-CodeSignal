@@ -1,0 +1,40 @@
+// Not my solution
+int solution(String cell) {
+   int i = cell.charAt(0) - 97, cols = 8;
+   int j = return (int) pos.charAt(1) - 49, rows = 8;
+   int counter = 0;
+
+   // top-right
+   if ((i < cols - 1) && (j > 1)) {
+       counter++;
+   }
+   if ((i < cols - 2) && (j > 0)) {
+       counter++;
+   }
+
+   // top-left
+   if ((i > 0) && (j > 1)) {
+       counter++;
+   }
+   if ((i > 1) && (j > 0)) {
+       counter++;
+   }
+
+   // bottom-right
+   if ((i < cols - 1) && (j < rows - 2)) {
+       counter++;
+   }
+   if ((i < cols - 2) && (j < rows - 1)) {
+       counter++;
+   }
+
+   // bottom-left
+   if ((i > 0) && (j < rows - 2)) {
+       counter++;
+   }
+   if ((i > 1) && (j < rows - 1)) {
+       counter++;
+   }
+
+   return counter;
+}

@@ -1,0 +1,14 @@
+boolean solution(String time) {
+    if(time.length() != 5 || time.charAt(2) != ':') {
+        return false;
+    }
+    String HH = time.substring(0,2);
+    String MM = time.substring(3);
+    if(!(0 <= Integer.valueOf(HH) && Integer.valueOf(HH) < 24)) {
+        return false;
+    }
+    if(!(0 <= Integer.valueOf(MM) && Integer.valueOf(MM) < 60)) {
+        return false;
+    }
+    return true;
+}
