@@ -1,0 +1,53 @@
+boolean solution(int[][] grid) {
+    for (int i = 0; i < grid.length; i++) {
+        HashSet<Integer> set = new HashSet<>();
+        for (int j = 0; j < grid[i].length; j++) {
+            int num = grid[i][j];
+            if(set.contains(num) || num < 1 || num > 9) {
+                System.out.println("rows" + i + " " + j);
+                return false;
+            }
+            else {
+                set.add(num);
+            }
+        }
+    }
+    for (int i = 0; i < grid[0].length; i++) {
+        HashSet<Integer> set = new HashSet<>();
+        for (int j = 0; j < grid.length; j++) {
+            int num = grid[j][i];
+            if(set.contains(num) || num < 1 || num > 9) {
+                System.out.println(i + " " + j);
+                return false;
+            }
+            else {
+                set.add(num);
+            }
+        }
+    } 
+    
+    // Not my solution of Traversing blocks of 3
+    boolean[] unique = new boolean[10];
+    for(int i = 0; i < 9 - 2; i += 3)
+    {
+        for(int j = 0; j < 9 - 2; j += 3)
+        {
+            Arrays.fill(unique, false);
+            for(int k = 0; k < 3; k++)
+            {
+                for(int l = 0; l < 3; l++)
+                {
+                    int X = i + k;
+                    int Y = j + l;
+                    int Z = grid[X][Y];
+                    if (unique[Z])
+                    {
+                        return false;
+                    }
+                    unique[Z] = true;
+                }
+            }
+        }
+    }
+    return true;
+}

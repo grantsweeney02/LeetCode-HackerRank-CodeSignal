@@ -1,0 +1,23 @@
+// Not all my solution
+String[] solution(String[] names) {
+		Set<String> set = new HashSet<>();
+		String[] fileNames = new String[names.length];
+		for(int i = 0; i < names.length; i++) {
+			String name = names[i];
+			if(!set.contains(name)) {
+				set.add(name);
+				fileNames[i] = name;
+			}
+			else {
+				int k = 1;
+				String newName = name;
+				while(set.contains(newName)) {
+					newName = name + "(" + k + ")";
+					k++;
+				}
+				set.add(newName);
+				fileNames[i] = newName;
+			}
+		}
+		return fileNames;
+}
