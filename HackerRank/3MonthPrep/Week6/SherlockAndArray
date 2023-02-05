@@ -1,0 +1,16 @@
+public static String balancedSums(List<Integer> arr) {
+    int leftSum = 0;
+    int sum = 0;
+    for(int x: arr)
+    {
+        sum += x;
+    }
+    for(int i = 0; i < arr.size(); i++)
+    {
+        if(leftSum == (sum-leftSum-arr.get(i))) {
+             return "YES";
+        }
+        leftSum += arr.get(i);
+    }
+    return "NO";
+}
